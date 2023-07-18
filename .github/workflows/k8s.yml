@@ -2,7 +2,7 @@ name: Build and Deploy TG Web
 
 on:
   push:
-    branches: ['master']
+    branches: ['init_ver']
   workflow_dispatch:
 
 env:
