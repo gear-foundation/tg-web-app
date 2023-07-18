@@ -61,7 +61,7 @@ jobs:
       - name: Deploy to k8s
         uses: sergeyfilyanin/kubectl-aws-eks@master
         with:
-          args: rollout restart deployment tg-web -n gear-dapps
+          args: rollout restart deployment tg-web-app -n gear-dapps
 
       - name: Check k8s deployments
         uses: sergeyfilyanin/kubectl-aws-eks@master
