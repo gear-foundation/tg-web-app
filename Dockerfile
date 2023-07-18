@@ -10,7 +10,7 @@ RUN apk add xsel
 
 RUN npm install
 
-RUN npm build
+RUN npm run build
 
 RUN npm install --global serve
 
