@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Anuphan", sans-serif;
+  src:
+    local("Anuphan"),
+    url("./assets/fonts/Anuphan2.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Anuphan", sans-serif;
+}
+
+body {
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 36px;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.block {
+  margin-top: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .logo {
+    margin-bottom: 40px;
+  }
+
+  p {
+    max-width: 480px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    text-align: initial;
+  }
+
+  .block {
+    padding: 32px 24px;
+    align-items: flex-start;
+    gap: 24px;
+
+    .logo {
+      margin-bottom: 24px;
+    }
+
+    p {
+      width: auto;
+      text-align: initial;
+    }
+  }
+}
