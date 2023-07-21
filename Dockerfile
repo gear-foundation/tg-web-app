@@ -8,6 +8,10 @@ RUN apk update
 
 RUN apk add xsel
 
+ARG WEB_APP_URL
+
+ENV WEB_APP_URL=${WEB_APP_URL}
+
 RUN npm install
 
 RUN npm run build
