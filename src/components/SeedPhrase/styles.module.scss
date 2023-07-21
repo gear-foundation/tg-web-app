@@ -1,0 +1,45 @@
+.seedPhrase {
+    padding: 12px 16px;
+    background-color: #262a3412;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 50% 47%;
+    grid-template-areas:
+        "copyButton defaultButton"
+        "message message";
+    gap: 16px;
+    width: 100%;
+
+    .message {
+        margin-top: 16px;
+        grid-area: message;
+
+        p {
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .buttons {
+        width: auto;
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: auto;
+        gap: 24px;
+        grid-template-areas:
+            "copyButton copyButton"
+            "message message"
+            "defaultButton defaultButton";
+
+        .message {
+            margin: 0;
+        }
+    }
+}

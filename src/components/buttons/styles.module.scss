@@ -1,0 +1,36 @@
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 15px 0px;
+    color: #000;
+
+    border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+.defaultButton {
+    background: #00ffc4;
+    grid-area: defaultButton;
+}
+
+.copyButton {
+    grid-area: copyButton;
+    background-color: #000000;
+    color: #ffffff;
+
+    img {
+        margin-right: 10px;
+    }
+}
+
+.backButton {
+    background-color: #fff;
+    border: 2px solid #000;
+}
