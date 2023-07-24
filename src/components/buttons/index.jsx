@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import IconCopy from "../../assets/copy.svg";
 import styles from "./styles.module.scss";
 
@@ -11,15 +11,25 @@ export const DefaultButton = ({ text, action }) => {
 };
 
 export const CopyButton = ({ text, valueCopy }) => {
+  const [isShowMessage, setShowMessage] = useState(false);
   const onCopyValue = () => {
     navigator.clipboard.writeText(valueCopy);
+    setShowMessage(true);
   };
 
   return (
-    <button className={styles.copyButton} type="button" onClick={onCopyValue}>
-      <img src={IconCopy} alt="copy icon" />
-      {text}
-    </button>
+    <>
+      <button className={styles.copyButton} type="button" onClick={onCopyValue}>
+        {!isShowMessage ? (
+          <>
+            <img src={IconCopy} alt="copy icon" />
+            {text}
+          </>
+        ) : (
+          "Copied!"
+        )}
+      </button>
+    </>
   );
 };
 
