@@ -14,7 +14,7 @@ export const AccountAddress = ({ accountAddress }) => {
       <div className={styles.accountAddress}>{accountAddress}</div>
 
       <div className={styles.buttons}>
-        <CopyButton text={"Copy Seed phrase"} valueCopy={accountAddress}/>
+        <CopyButton text={"Copy address"} valueCopy={accountAddress}/>
       </div>
     </>
   );
