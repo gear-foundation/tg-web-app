@@ -12,24 +12,41 @@ export const DefaultButton = ({ text, action }) => {
 
 export const CopyButton = ({ text, valueCopy }) => {
   const [isShowMessage, setShowMessage] = useState(false);
+
   const onCopyValue = () => {
-    navigator.clipboard.writeText(valueCopy);
-    setShowMessage(true);
+    const tempInput = document.createElement("input");
+    tempInput.setAttribute("value", valueCopy);
+    document.body.appendChild(tempInput);
+
+    tempInput.select();
+
+    try {
+      const successful = document.execCommand("copy");
+      if (successful) {
+        setShowMessage(true);
+      }
+    } catch (e) {
+      alert(e);
+    } finally {
+      document.body.removeChild(tempInput);
+    }
   };
 
   return (
-    <>
-      <button className={styles.copyButton} type="button" onClick={onCopyValue}>
-        {!isShowMessage ? (
-          <>
-            <img src={IconCopy} alt="copy icon" />
-            {text}
-          </>
-        ) : (
-          "Copied!"
-        )}
-      </button>
-    </>
+    <button
+      className={styles.copyButton}
+      type="button"
+      onClick={() => onCopyValue()}
+    >
+      {!isShowMessage ? (
+        <>
+          <img src={IconCopy} alt="copy icon" />
+          {text}
+        </>
+      ) : (
+        "Copied!"
+      )}
+    </button>
   );
 };
 
