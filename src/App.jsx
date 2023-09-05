@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Keyring } from "@polkadot/api";
-import { mnemonicGenerate } from "@polkadot/util-crypto";
+import { mnemonicGenerate, cryptoWaitReady } from "@polkadot/util-crypto";
 
 import Logo from "./assets/logo-vara.svg";
 import "./App.scss";
@@ -11,7 +11,7 @@ import { AccountAddress } from "./components/AccountAddress";
 import { RestoreOrder } from "./components/RestoreOrder";
 
 function App() {
-  const keyring = new Keyring();
+  const keyring = new Keyring({ type: "sr25519" });
   const [seedPhrase, setSeedPhrase] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showAccountAddress, setShowAccountAddress] = useState(false);
@@ -25,7 +25,8 @@ function App() {
     setShowConfirmation(false);
   };
 
-  const handleConfirmation = () => {
+  const handleConfirmation = async () => {
+    await cryptoWaitReady();
     setShowConfirmation(true);
     const account = keyring.addFromMnemonic(seedPhrase);
     setAccountAddress(account.address);
